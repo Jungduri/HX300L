@@ -1,20 +1,20 @@
 <robot
-  name="HX300L">
+  name="hx300l">
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="-0.10571 0.00037135 0.15034"
+        xyz="-0.105707348276965 0.000371347607556677 0.150339172355679"
         rpy="0 0 0" />
       <mass
-        value="94.155" />
+        value="94.1546039717305" />
       <inertia
-        ixx="5.0659"
-        ixy="-0.00090073"
-        ixz="0.22595"
-        iyy="8.6889"
-        iyz="-0.006709"
-        izz="11.427" />
+        ixx="5.06594305554809"
+        ixy="-0.000900726668482331"
+        ixz="0.225946188927735"
+        iyy="8.68892899153244"
+        iyz="-0.00670900712843585"
+        izz="11.4266015304124" />
     </inertial>
     <visual>
       <origin
@@ -22,12 +22,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/base_link.STL" />
+          filename="package://hx300l/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -36,10 +36,11 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/base_link.STL" />
+          filename="package://hx300l/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
+
   <link
     name="link1">
     <inertial>
@@ -62,7 +63,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link1.STL" />
+          filename="package://hx300l/meshes/link1.STL" />
       </geometry>
       <material
         name="">
@@ -76,13 +77,14 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link1.STL" />
+          filename="package://hx300l/meshes/link1.STL" />
       </geometry>
     </collision>
   </link>
+
   <joint
     name="joint1"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0 -0.312 0"
       rpy="1.5708 1.5708 0" />
@@ -91,63 +93,12 @@
     <child
       link="link1" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 0 1" />
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
   </joint>
+
   <link
     name="link2">
-    <inertial>
-      <origin
-        xyz="0.00012284 0.19489 0.37552"
-        rpy="0 0 0" />
-      <mass
-        value="106.8" />
-      <inertia
-        ixx="10.481"
-        ixy="0.010729"
-        ixz="0.0017654"
-        iyy="13.354"
-        iyz="-2.9039"
-        izz="11.103" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://HX300L/meshes/link2.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.75294 0.75294 0.75294 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://HX300L/meshes/link2.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="joint2"
-    type="continuous">
-    <origin
-      xyz="0 0 0"
-      rpy="0 0 0" />
-    <parent
-      link="link1" />
-    <child
-      link="link2" />
-    <axis
-      xyz="0 0 0" />
-  </joint>
-  <link
-    name="link3">
     <inertial>
       <origin
         xyz="0.0042845 0.16312 0.54267"
@@ -168,7 +119,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link3.STL" />
+          filename="package://hx300l/meshes/link2.STL" />
       </geometry>
       <material
         name="">
@@ -182,38 +133,93 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link3.STL" />
+          filename="package://hx300l/meshes/link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="revolute">
+    <origin
+      xyz="0 0.3 0.588"
+      rpy="1.5708 1.0519E-30 -6.123E-17" />
+    <parent
+      link="link1" />
+    <child
+      link="link2" />
+    <axis
+      xyz="1 0 0" />
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
+  </joint>
+  <link
+    name="link3">
+    <inertial>
+      <origin
+        xyz="0.306186905091814 0.194127068883106 0.00517822933247693"
+        rpy="0 0 0" />
+      <mass
+        value="52.492850757275" />
+      <inertia
+        ixx="1.02982135626259"
+        ixy="-0.26095146442249"
+        ixz="0.168340074282727"
+        iyy="19.3868465027806"
+        iyz="0.0451530041706977"
+        izz="19.4286072681113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hx300l/meshes/link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://hx300l/meshes/link3.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="joint3"
-    type="continuous">
+    type="revolute">
     <origin
-      xyz="0 0.3 0.588"
-      rpy="1.5708 1.0519E-30 -6.123E-17" />
+      xyz="0 1 0"
+      rpy="0 1.5708 0" />
     <parent
       link="link2" />
     <child
       link="link3" />
     <axis
-      xyz="0 0 0" />
+      xyz="0 0 1" />
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
   </joint>
   <link
     name="link4">
     <inertial>
       <origin
-        xyz="0.30619 0.19413 0.0051782"
+        xyz="0.0256120606583048 -0.0286074688787966 6.48864477978961E-05"
         rpy="0 0 0" />
       <mass
-        value="52.493" />
+        value="18.5659141905672" />
       <inertia
-        ixx="1.0298"
-        ixy="-0.26095"
-        ixz="0.16834"
-        iyy="19.387"
-        iyz="0.045153"
-        izz="19.429" />
+        ixx="0.203210425595452"
+        ixy="-0.0211993873780701"
+        ixz="-0.000258618471678663"
+        iyy="0.408799955394829"
+        iyz="-2.52480862266329E-05"
+        izz="0.492686876337837" />
     </inertial>
     <visual>
       <origin
@@ -221,12 +227,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link4.STL" />
+          filename="package://hx300l/meshes/link4.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.75294 0.75294 0.75294 1" />
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -235,74 +241,22 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://HX300L/meshes/link4.STL" />
+          filename="package://hx300l/meshes/link4.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="joint4"
-    type="continuous">
+    type="revolute">
     <origin
-      xyz="0 1 0"
-      rpy="0 1.5708 0" />
+      xyz="1.8 0.2 0"
+      rpy="-1.5708 0 0" />
     <parent
       link="link3" />
     <child
       link="link4" />
     <axis
-      xyz="0 0 0" />
-  </joint>
-  <link
-    name="link5">
-    <inertial>
-      <origin
-        xyz="0.025612 -0.028607 6.4886E-05"
-        rpy="0 0 0" />
-      <mass
-        value="18.566" />
-      <inertia
-        ixx="0.20321"
-        ixy="-0.021199"
-        ixz="-0.00025862"
-        iyy="0.4088"
-        iyz="-2.5248E-05"
-        izz="0.49269" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://HX300L/meshes/link5.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.75294 0.75294 0.75294 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://HX300L/meshes/link5.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="joint5"
-    type="continuous">
-    <origin
-      xyz="1.8 0.2 0"
-      rpy="-1.5708 0 0" />
-    <parent
-      link="link4" />
-    <child
-      link="link5" />
-    <axis
-      xyz="0 0 0" />
+      xyz="0 1 0" />
+    <limit effort="30" lower="-2.617" upper="2.617" velocity="1.571"/>
   </joint>
 </robot>
